@@ -1,5 +1,5 @@
 
-# Etude_Renderer_turtle
+# Etude_Renderer_Turtle
 
 这是一个使用Python实现的简单3D图形渲染器，使用turtle库进行绘制。虽然它看起来很幽默，但这是一个工作的3D渲染器，可以渲染3D对象。
 
@@ -58,6 +58,7 @@ pip install numpy
 ## 致谢
 
 感谢所有为该项目做出贡献的开发者（目前就我一个）
+
 
 
 
