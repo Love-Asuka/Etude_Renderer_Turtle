@@ -129,12 +129,10 @@ class 摄像机:
         self.视图矩阵 = self.计算视图矩阵()
     
     def 右旋转(self):
-        # 围绕上方向轴旋转
         方向 = [self.目标[0] - self.位置[0], 
                self.目标[1] - self.位置[1], 
                self.目标[2] - self.位置[2]]
         
-        # 旋转矩阵 (绕Y轴)
         角度 = math.radians(-self.旋转速度)
         cosθ = math.cos(角度)
         sinθ = math.sin(角度)
@@ -174,19 +172,15 @@ class 摄像机:
         self.正在向下看 = False
     
     def 向上看(self):
-        """向上旋转摄像机视角"""
-        # 计算当前方向向量
         方向 = [self.目标[0] - self.位置[0], 
                self.目标[1] - self.位置[1], 
                self.目标[2] - self.位置[2]]
         
-        # 计算右向量（用于俯仰旋转的轴）
         z轴 = self.归一化([self.位置[0] - self.目标[0], 
                          self.位置[1] - self.目标[1], 
                          self.位置[2] - self.目标[2]])
         x轴 = self.归一化(self.叉乘(self.上方向, z轴))
         
-        # 绕x轴旋转（俯仰）
         角度 = math.radians(self.旋转速度)
         cosθ = math.cos(角度)
         sinθ = math.sin(角度)
@@ -202,24 +196,21 @@ class 摄像机:
         self.视图矩阵 = self.计算视图矩阵()
     
     def 向下看(self):
-        """向下旋转摄像机视角"""
-        # 计算当前方向向量
+
         方向 = [self.目标[0] - self.位置[0], 
                self.目标[1] - self.位置[1], 
                self.目标[2] - self.位置[2]]
-        
-        # 计算右向量（用于俯仰旋转的轴）
+
         z轴 = self.归一化([self.位置[0] - self.目标[0], 
                          self.位置[1] - self.目标[1], 
                          self.位置[2] - self.目标[2]])
         x轴 = self.归一化(self.叉乘(self.上方向, z轴))
-        
-        # 绕x轴旋转（俯仰）
+
         角度 = math.radians(-self.旋转速度)
         cosθ = math.cos(角度)
         sinθ = math.sin(角度)
         
-        # 旋转方向向量
+
         新方向 = [
             方向[0],
             方向[1] * cosθ - 方向[2] * sinθ,
