@@ -10,7 +10,7 @@ def 初始化窗口():
         屏幕 = turtle.Screen()
         屏幕.setup(800, 800)
         屏幕.setworldcoordinates(-1.0, -1.0, 1.0, 1.0)
-        屏幕.tracer(False)  # 禁用动画
+        屏幕.tracer(False)  
     if 笔 is None:
         笔 = turtle.Turtle()
         笔.hideturtle()
@@ -23,6 +23,8 @@ def 添加到帧缓存(三维顶点):
 def 渲染帧():
     global 帧缓存
     初始化窗口()
+
+    笔.clear()
 
     def 映射坐标(x, y):
         return x * 0.9, y * 0.9
@@ -38,12 +40,11 @@ def 渲染帧():
                     笔.goto(x, y)
             except (ValueError, IndexError):
                 continue
-        # 闭合多边形
         if len(三维顶点) > 2:
             x0, y0 = 映射坐标(float(三维顶点[0][0]), float(三维顶点[0][1]))
             笔.goto(x0, y0)
 
         笔.penup()
 
-    屏幕.update()  # 更新屏幕内容
-    帧缓存 = []  # 清空帧缓存
+    屏幕.update() 
+    帧缓存 = []  

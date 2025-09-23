@@ -1,5 +1,3 @@
-import math
-
 def 创建矩阵(高,宽,值=0):
     return [[值 for _ in range(宽)] for _ in range(高)]
 def 创建单位矩阵(高,宽):
@@ -55,14 +53,6 @@ def 矩阵乘法(矩阵1, 矩阵2):
                 结果矩阵[高][宽] += 矩阵1[高][索引] * 矩阵2[索引][宽]
     return 结果矩阵
 
-def 正切(角度):
-    return math.tan(角度 * math.pi / 180)
-
-def 余弦(角度):
-    return math.cos(角度 * math.pi / 180)
-
-def 正弦(角度):
-    return math.sin(角度 * math.pi / 180)
 
 
 def 矩阵乘以标量(矩阵, 标量):
